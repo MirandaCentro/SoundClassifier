@@ -26,8 +26,11 @@ function preload() {
     text(label, width / 2, height / 2);
     
 }
-// A function to run when we get any errors and the results
-function gotResult(results) {
-    // The results are in an array ordered by confidence
-    predictedWord = results[0].label;
+function gotResult(results, error) {
+  if (error) {
+    console.log(error);
+    return;
   }
+  // The results are in an array ordered by confidence
+  label = results[0].label; 
+}
